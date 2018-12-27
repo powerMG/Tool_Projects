@@ -1,0 +1,65 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Home Page";
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<style>
+    .form-mian {
+        width: 500px;
+        margin: 0 auto;
+        margin-top: 50px;
+        border: solid 1px #ddd;
+        height: 240px;
+        padding: 20px 20px;
+        box-shadow: rgba(0,0,0,.85) 0px 0px 10px;
+        -webkit-box-shadow: rgba(0,0,0,.55) 0px 0px 10px;
+        -moz-box-shadow: rgba(0,0,0,.55) 0px 0px 10px;
+    }
+
+    .form-tit {
+        text-align: center;
+        font-weight: bold;
+        font-size:16px;
+        margin-bottom:20px;
+    }
+    .form-remark {
+        height: 30px;
+        font-size: 12px;
+        color: red;
+        border: solid 1px red;
+        padding: 5px 20px;
+        line-height:20px;
+    }
+
+    .form-self-group {
+        width: 500px;
+    }
+
+        .form-self-group > label {
+            float: left;
+            width: 20%;
+            margin-bottom: 10px;
+        }
+
+        .form-self-group > input[type="text"] {
+            float: left;
+            width: 72%;
+            margin-bottom: 10px;
+        }
+</style>
+<div>
+    <div class="form-mian">
+        <p class="form-tit">动态请求swagger生成对于api脚本</p>
+        @using (Html.BeginForm("CreateFile", "Home"))
+        {
+            <div class="form-group form-self-group">
+                <label>请求变量：</label><input type="text" class="form-control" name="letVal" />
+                <label>请求地址：</label><input type="text" class="form-control" name="actionUrl" />
+                <input type="submit" class="btn btn-success" value="生成" />
+            </div>
+        }
+            <div class="form-remark">
+                注：生成后的文件在项目文件的"OutputFile"文件夹下
+            </div>
+    </div>
+</div>
